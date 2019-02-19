@@ -1,0 +1,33 @@
+__meta:
+  chart: incubator/elasticsearch-curator
+  version: 0.4.0
+
+config:
+  elasticsearch:
+    hosts:
+    - elasticsearch-client
+    master_only: false
+    timeout: 30
+    use_ssl: false
+configMaps:
+  action_file_yml: |-
+    actions:
+      0:
+        action: delete_indices
+        description: Clean up old indices but skip the .kibana index
+        options:
+          ignore_empty_list: True
+        filters:
+          - filtertype: kibana
+            exclude: True
+          - filtertype: age
+            source: name
+            direction: older
+            timestring: '%Y.%m.%d'
+            unit: days
+            unit_count: 7
+cronjob:
+  concurrencyPolicy: Replace
+  schedule: 0 * * * *
+priorityClassName: common-high
+
