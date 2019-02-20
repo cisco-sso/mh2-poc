@@ -11,8 +11,8 @@ install:  ## Install python packages
 	pipenv install --dev
 
 pep8:  ## Format all Python Files
-	yapf -i $$(find * -type f -name '*.py')
-	flake8 ./app ./tests
+	@yapf -i $$(find * -type f -name '*.py')
+	@flake8 ./app ./tests
 
 clean:  ## Clean temporary files
 	find * -type f -name *.pyc | xargs rm -f
