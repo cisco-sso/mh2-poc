@@ -1,4 +1,5 @@
 import copy
+import yaml
 
 
 class BaseChart:
@@ -19,10 +20,14 @@ class BaseChart:
         _copy.overrides.append(lambda values: function(values, **kwargs))
         return _copy
 
-    def generate(self, debug=False):
+    def withO(self, function, **kwargs):
+        """Short Alias for self.withOverride"""
+        return self.withOverride(function, **kwargs)
+
+    def toYaml(self, debug=False):
         u = {}
         for override in self.overrides:
             u = override(u)
             if debug:
-                print("generate", u)
-        return u
+                print("#####\ngenerate", yaml.dump(u, default_flow_style=False))
+        return yaml.dump(u, default_flow_style=False)
