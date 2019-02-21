@@ -45,8 +45,7 @@ def kibana(callback_values):
             'annotations': {
                 'external-dns.alpha.kubernetes.io/hostname': 'kibana.__REPLACE_CLUSTER_FQDN__',
                 'kubernetes.io/ingress.class': 'nginx',
-                'nginx.ingress.kubernetes.io/auth-realm': 'Authentication '
-                'Required',
+                'nginx.ingress.kubernetes.io/auth-realm': 'Authentication Required',
                 'nginx.ingress.kubernetes.io/auth-secret': 'common-basic-auth',
                 'nginx.ingress.kubernetes.io/auth-type': 'basic',
                 'nginx.ingress.kubernetes.io/force-ssl-redirect': 'true'

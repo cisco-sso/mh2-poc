@@ -29,6 +29,7 @@ def elasticsearch_curator(callback_values):
     callback_values.update(data)
     return callback_values
 
+
 def _action_file():
     str = """
 actions:

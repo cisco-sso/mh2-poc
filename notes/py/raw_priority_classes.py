@@ -7,12 +7,10 @@ def raw_priority_classes(callback_values):
             'chart': 'cisco-sso/raw',
             'version': '0.1.0'
         },
-        'resources': [  # yapf: disable
+        'resources': [  # yapf: disable 
             {
                 'apiVersion': 'scheduling.k8s.io/v1beta1',
-                'description': 'This priority class should only be '
-                'used for critical priority common '
-                'pods.',
+                'description': 'This priority class should only be used for critical priority common pods.',
                 'globalDefault': False,
                 'kind': 'PriorityClass',
                 'metadata': {
@@ -22,8 +20,7 @@ def raw_priority_classes(callback_values):
             },
             {
                 'apiVersion': 'scheduling.k8s.io/v1beta1',
-                'description': 'This priority class should only be '
-                'used for high priority common pods.',
+                'description': 'This priority class should only be used for high priority common pods.',
                 'globalDefault': False,
                 'kind': 'PriorityClass',
                 'metadata': {
@@ -33,8 +30,7 @@ def raw_priority_classes(callback_values):
             },
             {
                 'apiVersion': 'scheduling.k8s.io/v1beta1',
-                'description': 'This priority class should only be '
-                'used for medium priority common pods.',
+                'description': 'This priority class should only be used for medium priority common pods.',
                 'globalDefault': False,
                 'kind': 'PriorityClass',
                 'metadata': {
@@ -44,8 +40,7 @@ def raw_priority_classes(callback_values):
             },
             {
                 'apiVersion': 'scheduling.k8s.io/v1beta1',
-                'description': 'This priority class should only be '
-                'used for low priority common pods.',
+                'description': 'This priority class should only be used for low priority common pods.',
                 'globalDefault': False,
                 'kind': 'PriorityClass',
                 'metadata': {
@@ -55,8 +50,7 @@ def raw_priority_classes(callback_values):
             },
             {
                 'apiVersion': 'scheduling.k8s.io/v1beta1',
-                'description': 'This priority class should only be '
-                'used for critical priority app pods.',
+                'description': 'This priority class should only be used for critical priority app pods.',
                 'globalDefault': False,
                 'kind': 'PriorityClass',
                 'metadata': {
@@ -66,8 +60,7 @@ def raw_priority_classes(callback_values):
             },
             {
                 'apiVersion': 'scheduling.k8s.io/v1beta1',
-                'description': 'This priority class should only be '
-                'used for high priority app pods.',
+                'description': 'This priority class should only be used for high priority app pods.',
                 'globalDefault': False,
                 'kind': 'PriorityClass',
                 'metadata': {
@@ -77,8 +70,7 @@ def raw_priority_classes(callback_values):
             },
             {
                 'apiVersion': 'scheduling.k8s.io/v1beta1',
-                'description': 'This priority class should only be '
-                'used for medium priority app pods.',
+                'description': 'This priority class should only be used for medium priority app pods.',
                 'globalDefault': True,
                 'kind': 'PriorityClass',
                 'metadata': {
@@ -88,8 +80,7 @@ def raw_priority_classes(callback_values):
             },
             {
                 'apiVersion': 'scheduling.k8s.io/v1beta1',
-                'description': 'This priority class should only be '
-                'used for low priority app pods.',
+                'description': 'This priority class should only be used for low priority app pods.',
                 'globalDefault': False,
                 'kind': 'PriorityClass',
                 'metadata': {
