@@ -29,11 +29,12 @@ class ChartCollections:
 def main():
     ccm = ClusterConfigMap(fqdn="kube1.cloud.com", namespace="common")
     gca = CommonChartCollection(ccm)  # gold standard prod
-    print(gca)
-    for k, v in gca.getCharts().items():
-        print("#####\n", k, "\n", v.toYaml())
 
-    print("*" * 69)
+    if False:
+        print(gca)
+        for k, v in gca.getCharts().items():
+            print("#####\n", k, "\n", v.toYaml())
+        print("*" * 69)
     # new chart collection with all same configs, except replica-count == 99
     gca.overrideChart("oauth2-proxy-kibana", co.set_replica_count, count=99)
     gca.overrideChart("oauth2-proxy-kibana", set_my_override, who="Josh")
