@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+
+
+def cert_manager_configs(callback_values):
+    data = {
+        '__meta': {
+            'chart': 'cisco-sso/cert-manager-configs',
+            'version': '0.1.0'
+        },
+        'certificates': [{
+            'challengeproviders': [{
+                'dns01': {
+                    'provider': 'cloudflare'
+                }
+            }],
+            'clusterissuer': 'letsencrypt-production',
+            'domains': ['*.__REPLACE_CLUSTER_FQDN__'],
+            'name': 'wildcard-production-tls'
+        }],
+        'clusterissuers': [{
+            'challengeproviders': {
+                'dns01': {
+                    'providers': [{
+                        'cloudflare': {
+                            'apiKeySecretRef': {
+                                'key': 'cloudflare_api_key',
+                                'name': 'external-dns'
+                            },
+                            'email': '__REPLACE__'
+                        },
+                        'name': 'cloudflare'
+                    }]
+                }
+            },
+            'email': '__REPLACE__',
+            'name': 'letsencrypt-production',
+            'server': 'https://acme-v02.api.letsencrypt.org/directory'
+        }]
+    }
+
+    callback_values.update(data)
+    return callback_values
