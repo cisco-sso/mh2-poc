@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def raw_priority_classes(callback_values):
+def raw_limit_ranges(callback_values):
 
     data = {
         '__meta': {

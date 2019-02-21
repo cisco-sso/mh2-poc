@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
 
-def xxx(callback_values):
-
+def kibana(callback_values):
     dict = {
         '__meta': {
             'chart': 'stable/kibana',

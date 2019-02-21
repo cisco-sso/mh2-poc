@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def xxx(callback_values):
+def filebeat(callback_values):
 
     dict = {
         '__meta': {
@@ -19,41 +19,42 @@ def xxx(callback_values):
                     'reload.enabled': False
                 }
             },
-            'filebeat.prospectors': [{
-                'enabled': True,
-                'exclude_files': ['kube\\-apiserver\\-audit\\.log$'],
-                'ignore_older': '168h',
-                'paths': ['/var/log/*.log', '/var/log/messages', '/var/log/syslog'],
-                'type': 'log'
-            },
-                                     {
-                                         'enabled': True,
-                                         'ignore_older': '168h',
-                                         'json.add_error_key': True,
-                                         'paths': ['/var/log/kube-apiserver-audit.log'],
-                                         'type': 'log'
-                                     },
-                                     {
-                                         'containers.ids': ['*'],
-                                         'ignore_older':
-                                         '168h',
-                                         'processors': [{
-                                             'add_kubernetes_metadata': {
-                                                 'in_cluster': True
-                                             }
-                                         },
-                                                        {
-                                                            'drop_event': {
-                                                                'when': {
-                                                                    'equals': {
-                                                                        'kubernetes.container.name': 'filebeat'
-                                                                    }
-                                                                }
-                                                            }
-                                                        }],
-                                         'type':
-                                         'docker'
-                                     }],
+            'filebeat.prospectors': [  # yapf: disable
+                {
+                    'enabled': True,
+                    'exclude_files': ['kube\\-apiserver\\-audit\\.log$'],
+                    'ignore_older': '168h',
+                    'paths': ['/var/log/*.log', '/var/log/messages', '/var/log/syslog'],
+                    'type': 'log'
+                },
+                {
+                    'enabled': True,
+                    'ignore_older': '168h',
+                    'json.add_error_key': True,
+                    'paths': ['/var/log/kube-apiserver-audit.log'],
+                    'type': 'log'
+                },
+                {
+                    'containers.ids': ['*'],
+                    'ignore_older':
+                    '168h',
+                    'processors': [{
+                        'add_kubernetes_metadata': {
+                            'in_cluster': True
+                        }
+                    }, {
+                        'drop_event': {
+                            'when': {
+                                'equals': {
+                                    'kubernetes.container.name': 'filebeat'
+                                }
+                            }
+                        }
+                    }],
+                    'type':
+                    'docker'
+                }
+            ],
             'output.elasticsearch': {
                 'hosts': ['http://elasticsearch-client:9200']
             },

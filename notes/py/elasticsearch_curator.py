@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def xxx(callback_values):
+def elasticsearch_curator(callback_values):
 
     dict = {
         '__meta': {
@@ -17,23 +17,7 @@ def xxx(callback_values):
             }
         },
         'configMaps': {
-            'action_file_yml':
-            'actions:\n'
-            '  0:\n'
-            '    action: delete_indices\n'
-            '    description: Clean up old '
-            'indices but skip the .kibana index\n'
-            '    options:\n'
-            '      ignore_empty_list: True\n'
-            '    filters:\n'
-            '      - filtertype: kibana\n'
-            '        exclude: True\n'
-            '      - filtertype: age\n'
-            '        source: name\n'
-            '        direction: older\n'
-            "        timestring: '%Y.%m.%d'\n"
-            '        unit: days\n'
-            '        unit_count: 7'
+            'action_file_yml': _action_file()
         },
         'cronjob': {
             'concurrencyPolicy': 'Replace',
@@ -44,3 +28,23 @@ def xxx(callback_values):
 
     callback_values.update(data)
     return callback_values
+
+def _action_file():
+    str = """
+actions:
+  0:
+    action: delete_indices
+    description: Clean up old indices but skip the .kibana index
+    options:
+      ignore_empty_list: True
+    filters:
+      - filtertype: kibana
+        exclude: True
+      - filtertype: age
+        source: name
+        direction: older
+        timestring: '%Y.%m.%d'
+        unit: days
+        unit_count: 7
+"""
+    return str

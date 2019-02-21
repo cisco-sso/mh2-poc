@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
 
-def xxx(callback_values):
-
+def raw_cluster_role_bindings(callback_values):
     dict = {
         '__meta': {
             'chart': 'cisco-sso/raw',

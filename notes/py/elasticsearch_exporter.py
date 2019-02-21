@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
 
-def xxx(callback_values):
-
+def elasticsearch_exporter(callback_values):
     dict = {
         '__meta': {
             'chart': 'stable/elasticsearch-exporter',

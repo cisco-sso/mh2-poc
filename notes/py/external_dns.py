@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def xxx(callback_values):
+def external_dns(callback_values):
 
     dict = {
         '__meta': {
