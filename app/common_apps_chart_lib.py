@@ -12,9 +12,9 @@ from lib.overrides.common.raw_priority_classes import raw_priority_classes
 from lib.overrides.common.raw_cluster_role_bindings import raw_cluster_role_bindings
 from lib.overrides.common.raw_limit_ranges import raw_limit_ranges
 
-import lib.overrides.common as common
+# import lib.overrides.common as common
 
-import ipdb; ipdb.set_trace()
+# import ipdb; ipdb.set_trace()
 
 class BaseChartCollection:
     __slots__ = ['chart_dict', 'configmap']
@@ -54,7 +54,7 @@ class CommonChartCollection(BaseChartCollection):
                        release_name=n,
                        chart='incubator/raw',
                        version='0.1.0') \
-                .withO(common.raw_priority_classes)
+                .withO(raw_priority_classes)
         self.chart_dict[n] = t
 
         n = 'raw_oauth2_proxy_accesslist_core'
@@ -71,7 +71,7 @@ class CommonChartCollection(BaseChartCollection):
                        release_name=n,
                        chart='incubator/raw',
                        version='0.1.0') \
-                .withO(common.raw_cluster_role_bindings)
+                .withO(raw_cluster_role_bindings)
         self.chart_dict[n] = t
 
         n = 'raw_limit_ranges'
