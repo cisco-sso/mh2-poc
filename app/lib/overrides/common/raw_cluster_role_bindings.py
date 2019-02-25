@@ -2,7 +2,7 @@
 
 
 def raw_cluster_role_bindings(callback_values):
-    dict = {
+    data = {
         '__meta': {
             'chart': 'cisco-sso/raw',
             'version': '0.1.0'

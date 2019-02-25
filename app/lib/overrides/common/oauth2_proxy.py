@@ -2,7 +2,7 @@
 
 
 def oauth2_proxy(callback_values):
-    dict = {
+    data = {
         '__meta': {
             'chart': 'stable/oauth2-proxy',
             'version': '0.6.0'

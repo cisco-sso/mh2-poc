@@ -2,7 +2,7 @@
 
 
 def kibana(callback_values):
-    dict = {
+    data = {
         '__meta': {
             'chart': 'stable/kibana',
             'version': '0.8.0'

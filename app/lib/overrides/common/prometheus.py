@@ -5,7 +5,7 @@ def prometheus(callback_values):
     core_alerts = '^(K8S.+|Kube.+Overcommit|KubeQuota.+|KubePersist.+|KubeNode.+|KubeVersion.+|KubeClient.+|Elasticsearch.+|Node.+Usage)$'
     core_pods = '.*(cert-manager|chaoskube|cluster-autoscaler|consul|dashboard|docker-registry|elasticsearch|external-dns|filebeat|fluentd-elasticsearch|grafana|kafka|kibana|logstash|minio|nginx-ingress|oauth2-proxy|prometheus|stolon|vault|zookeeper).*'
 
-    dict = {
+    data = {
         '__meta': {
             'chart': 'stable/prometheus',
             'version': '7.4.5'

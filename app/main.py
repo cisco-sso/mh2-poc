@@ -36,8 +36,8 @@ def main():
             print("#####\n", k, "\n", v.toYaml())
         print("*" * 69)
     # new chart collection with all same configs, except replica-count == 99
-    gca.overrideChart("oauth2-proxy-kibana", co.set_replica_count, count=99)
-    gca.overrideChart("oauth2-proxy-kibana", set_my_override, who="Josh")
+    gca.overrideChart("oauth2_proxy_kibana", co.set_replica_count, count=99)
+    gca.overrideChart("oauth2_proxy_kibana", set_my_override, who="Josh")
     print(gca)
     for k, v in gca.getCharts().items():
         print("#####\n", k, "\n", v.toYaml())

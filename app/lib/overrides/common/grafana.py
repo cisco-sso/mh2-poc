@@ -2,7 +2,7 @@
 
 
 def grafana(callback_values):
-    dict = {
+    data = {
         '__meta': {
             'chart': 'stable/grafana',
             'version': '1.13.1'

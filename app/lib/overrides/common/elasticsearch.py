@@ -3,7 +3,7 @@
 
 def elasticsearch(callback_values):
 
-    dict = {
+    data = {
         '__meta': {
             'chart': 'incubator/elasticsearch',
             'version': '1.4.0'

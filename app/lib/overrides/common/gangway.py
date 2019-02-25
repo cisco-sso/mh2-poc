@@ -2,7 +2,7 @@
 
 
 def gangway(callback_values):
-    dict = {
+    data = {
         '__meta': {
             'chart': 'cisco-sso/gangway',
             'version': '0.1.0'

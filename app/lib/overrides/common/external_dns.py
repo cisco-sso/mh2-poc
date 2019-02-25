@@ -3,7 +3,7 @@
 
 def external_dns(callback_values):
 
-    dict = {
+    data = {
         '__meta': {
             'chart': 'stable/external-dns',
             'version': '1.2.0'

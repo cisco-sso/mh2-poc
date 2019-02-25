@@ -3,7 +3,7 @@
 
 def filebeat(callback_values):
 
-    dict = {
+    data = {
         '__meta': {
             'chart': 'stable/filebeat',
             'version': '1.0.5'

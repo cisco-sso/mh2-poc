@@ -2,7 +2,7 @@
 
 
 def elasticsearch_exporter(callback_values):
-    dict = {
+    data = {
         '__meta': {
             'chart': 'stable/elasticsearch-exporter',
             'version': '0.2.0'

@@ -3,7 +3,7 @@
 
 def elasticsearch_curator(callback_values):
 
-    dict = {
+    data = {
         '__meta': {
             'chart': 'incubator/elasticsearch-curator',
             'version': '0.4.0'
